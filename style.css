@@ -1,44 +1,115 @@
-/* Medieval glassmorphism effect */
+/* Medieval glassmorphism effect - dark, 4K, fire & torches */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=UnifrakturCook:wght@700&display=swap');
+
 body {
-    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=3840&q=80') no-repeat center center fixed;
     background-size: cover;
     font-family: 'Cinzel', serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    /* Dark overlay for medieval mood */
+    position: relative;
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 10, 5, 0.85);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Torch flames - animated */
+.torch {
+    position: absolute;
+    width: 60px;
+    height: 180px;
+    z-index: 2;
+}
+.torch.left {
+    left: 5vw;
+    top: 8vh;
+}
+.torch.right {
+    right: 5vw;
+    top: 8vh;
+}
+.torch-stick {
+    width: 12px;
+    height: 100px;
+    background: linear-gradient(180deg, #7c5e3c 0%, #3e2c0a 100%);
+    margin: 0 auto;
+    border-radius: 6px;
+    position: relative;
+    top: 80px;
+    box-shadow: 0 0 8px #3e2c0a;
+}
+.torch-flame {
+    width: 40px;
+    height: 80px;
+    background: radial-gradient(circle at 50% 60%, #ffb300 0%, #ff6f00 60%, transparent 100%);
+    border-radius: 50% 50% 40% 40%;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: flame 1.2s infinite alternate;
+    opacity: 0.85;
+    box-shadow: 0 0 40px 16px #ff9800, 0 0 80px 32px #ff6f00;
+}
+@keyframes flame {
+    0% { transform: scaleY(1) scaleX(1) rotate(-2deg); opacity: 0.9;}
+    50% { transform: scaleY(1.15) scaleX(1.05) rotate(2deg); opacity: 1;}
+    100% { transform: scaleY(0.95) scaleX(0.95) rotate(-1deg); opacity: 0.8;}
 }
 
 .glass-medieval {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    border: 2px solid rgba(120, 80, 40, 0.3);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 2rem;
-    max-width: 700px;
-    margin: 3rem auto;
-    color: #3e2c0a;
-    text-shadow: 0 1px 2px #fff8, 0 0 10px #bfa76f;
-    border-image: linear-gradient(135deg, #bfa76f 0%, #7c5e3c 100%) 1;
+    background: rgba(30, 20, 10, 0.55);
+    border-radius: 24px;
+    border: 2px solid rgba(120, 80, 40, 0.5);
+    box-shadow: 0 8px 48px 0 rgba(31, 38, 135, 0.47), 0 0 80px 0 #ff980033;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2.5rem 3rem;
+    max-width: 900px;
+    margin: 5rem auto;
+    color: #ffe7b3;
+    text-shadow: 0 2px 8px #3e2c0a, 0 0 10px #ff9800;
+    border-image: linear-gradient(135deg, #ff9800 0%, #7c5e3c 100%) 1;
+    position: relative;
+    z-index: 1;
 }
 
 h1, h2 {
     font-family: 'UnifrakturCook', cursive;
-    color: #7c5e3c;
-    text-shadow: 0 2px 8px #fff8, 0 0 10px #bfa76f;
+    color: #ff9800;
+    text-shadow: 0 2px 12px #3e2c0a, 0 0 18px #ffb300;
     letter-spacing: 2px;
 }
 
 p {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: #3e2c0a;
-    background: rgba(255, 255, 220, 0.12);
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    border-left: 3px solid #bfa76f;
-    margin-bottom: 1.2rem;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #ffe7b3;
+    background: rgba(60, 40, 20, 0.22);
+    border-radius: 10px;
+    padding: 0.7rem 1.2rem;
+    border-left: 4px solid #ff9800;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 1px 4px #3e2c0a;
 }
 
-/* Optional: Add medieval fonts from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=UnifrakturCook:wght@700&display=swap');
+/* Responsive for 4K screens */
+@media (min-width: 2560px) {
+    .glass-medieval {
+        max-width: 1400px;
+        padding: 4rem 6rem;
+        font-size: 1.35rem;
+    }
+    h1, h2 {
+        font-size: 3rem;
+    }
+    p {
+        font-size: 1.5rem;
+    }
+}
