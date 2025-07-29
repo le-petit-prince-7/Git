@@ -3,7 +3,8 @@
 
 body {
     width: 600px;
-    background-image: url('https://static.kochmedia.com/yac_sites/kcd2-v3/KCD2_Hardcoremode_Desktop.jpg');
+    background-image: url('');
+    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     font-family: 'Cinzel', serif;
