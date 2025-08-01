@@ -1,13 +1,3 @@
-
-h1,h2,h3 {
-    color: #FFB74D;
-    text-align: center;
-}
-
-p {
-    color: #FFFFFF;
-}
-
 @font-face {
   font-family: 'BC Vajgar';
   src: url('/fonts/BCVajgar.woff2') format('woff2');
@@ -16,94 +6,66 @@ p {
   font-display: swap;
 }
 
-body {
-  position: relative;
-  /* Hladší lineární gradient v tmavých tónech pro konzistentní kontrast */
-  background: linear-gradient(270deg, #6A4C93, #4A2C5A 30%, #6A4C93 70%);
-  background-size: 200% 200%; /* Menší rozsah pro jemnější pohyb */
-  background-attachment: fixed;
-  animation: gradientPulse 17s ease-in-out infinite alternate; /* Delší, plynulá animace bez skoků */
-  font-family: 'BC Vajgar', serif;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-body::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Jemný šum pro zrnitost */
-  background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)"/%3E%3C/svg%3E');
-  opacity: 0.08; /* Velmi jemná pro méně rušení */
-  mix-blend-mode: soft-light;
-  pointer-events: none;
-}
-
-main {
-  position: relative;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.4); /* Poloprůhledný tmavý podklad pro stabilní čitelnost textu */
-  max-width: 800px; /* Šířka pro lepší čitelnost */
-  margin: 0 auto;
-  padding: 40px;
-  border-radius: 8px; /* Jemný zaoblení pro UX */
-}
-
-h1, p {
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Stín na textu pro lepší viditelnost při animaci */
-}
-
-@keyframes gradientPulse {
+@keyframes gradient {
   0% {
     background-position: 0% 50%;
   }
-  100% {
+  50% {
     background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-
-
-/*  */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
 body {
-  height: 100%;
-  width: 100%;
+  background: linear-gradient(-45deg, #ffea00, #02c39a, #aacc00, #028090);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  font-family: 'BC Vajgar', serif;
+
 }
 
-#gradient-canvas {
-  width: 100%;
-  height: 100%;
-  --gradient-color-1: #a960ee;
-  --gradient-color-2: #ff333d;
-  --gradient-color-3: #90e0ff;
-  --gradient-color-4: #ffcb57;
-  z-index: 0;
+h1{
+    font-size: 3em; /* Zvýšení velikosti pro lepší čitelnost */
+    font-weight: bold; /* Zvýraznění pro důležitost */
 }
-.title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgb(255 255 255 / 26%);
-    border-radius: 10px;
-    border: 1px solid rgb(255 255 255 / 15%);
-    position: absolute;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    font-size: 30px;
-    font-family: sans-serif;
-    padding: 30px 40px;
-      text-align: center;
-    line-height: 1.4;
+
+h2 {
+    font-size: 2.5em; /* Zvýšení velikosti pro lepší čitelnost */
+    font-weight: bold; /* Zvýraznění pro důležitost */
+}
+
+h3 {
+    font-size: 2em; /* Zvýšení velikosti pro lepší čitelnost */
+    font-weight: bold; /* Zvýraznění pro důležitost */
+}
+
+h1, h2, h3 {
+    color: #fff; /* Zlatá pro luxusní, královský nádech – držíme to, ale přidáváme stín */
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Jemný stín pro hloubku a lepší kontrast na gradientu */
+}
+
+p {
+    color: #333333; 
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.4); /* Lehký stín pro čitelnost, bez přehánění */
+    line-height: 1.6; /* Zlepšení čitelnosti textu */
+    text-align: center; /* Zarovnání textu na střed pro lepší vzhled */
+    margin: 0 40px; /* Přidání odsazení pro lepší vzhled */
+    font-size: x-large;
+}
+
+main, article {
+    background: rgba(0, 0, 0, 0.3); /* Tmavý poloprůhledný podklad – zmírní "bití" gradientu */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.narrow-text {
+  max-width: 80vw; /* 80 % šířky viewportu */
+  margin: 0 auto;
 }
