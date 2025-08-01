@@ -65,7 +65,7 @@ main, article {
     margin: 0 auto;
 }
 
-.narrow-text {
+p {
   max-width: 80vw; /* 80 % šířky viewportu */
   margin: 0 auto;
 }
